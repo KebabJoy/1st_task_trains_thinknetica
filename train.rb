@@ -44,7 +44,12 @@ class Train
 	end
 
 	def next_station
-		@route.stations[@route.stations.index(@current_station)+1]
+		if @route.stations.index(@current_station) == @route.stations.last
+			puts "Поезд достиг конечной станции"
+			nil
+		else
+			@route.stations[@route.stations.index(@current_station)+1]
+		end
 	end
 
 	def previous_station
