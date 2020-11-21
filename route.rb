@@ -9,3 +9,5 @@ class Route
 		@stations.insert(-1, station)
 	end
 end
+
+#clear
