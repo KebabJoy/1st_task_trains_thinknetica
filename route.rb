@@ -8,10 +8,4 @@ class Route
 	def add_station(station)
 		@stations.insert(-1, station)
 	end
-
-	def print_stations
-		stations.each do |station|
-			puts station
-		end
-	end
 end
