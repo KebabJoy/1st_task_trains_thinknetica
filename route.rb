@@ -2,13 +2,11 @@ class Route
 	attr_reader :stations
 
 	def initialize(start,finish)
-		@stations = []
-		@stations << finish
-		@stations.unshift(start)
+		@stations = [start, finish]
 	end
 
 	def add_station(station)
-		@stations.insert(stations.index(stations.last-1,station))
+		@stations.insert(-1, station)
 	end
 
 	def print_stations
