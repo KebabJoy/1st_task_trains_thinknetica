@@ -1,6 +1,5 @@
 class Train
-  attr_accessor :speed; :wagons
-  attr_reader :type; :number; :route; :current_station
+  attr_reader :type; :number; :route; :current_station; :speed; :wagons
 
   def initialize(num)
     @number = num
@@ -57,6 +56,10 @@ class Train
       @route.stations[@route.stations.index(@current_station)-1]
     end
   end
+
+  private #A user should not be able to change speed and wagons manually
+  attr_writer :speed; :wagons
+
 end
 
 

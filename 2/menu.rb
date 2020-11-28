@@ -8,6 +8,9 @@ class Menu
   def initialize
     print_menu
     choose_method
+    @stations = {}
+    @route = {}
+    @trains = {}
   end
 
   def print_menu
@@ -55,7 +58,7 @@ class Menu
       when '10'
         move_train_back
       when '11'
-        @stations
+        show_stations
       when '12'
         show_trains
       else
@@ -143,6 +146,10 @@ class Menu
     puts "Enter train's number:"
     num = gets.chomp
     @trains[num].move_to_previous_station
+  end
+
+  def show_stations
+    @route.stations
   end
 
   def show_trains

@@ -1,6 +1,5 @@
 class Station
-  attr_reader :name
-  attr_accessor :trains
+  attr_reader :name; :trains
 
   def initialize(name)
     @trains = []
@@ -26,5 +25,8 @@ class Station
       puts "Поезда нет на этой станции"
     end
   end
+
+  private #A user should not be able to change trains manually
+  attr_writer :trains
 end
 
