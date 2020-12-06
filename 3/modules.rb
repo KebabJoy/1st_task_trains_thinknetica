@@ -9,9 +9,10 @@ module Instances
   end
 
   module ClassMethods
-    @@instances = 0
+    attr_accessor :instances
+
     def instances
-      @@instances
+      @instances ||= 0
     end
   end
 
