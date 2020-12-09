@@ -2,7 +2,7 @@ module Company
   attr_accessor :company
 end
 
-module Instances
+module InstanceCounter
   def self.included(base)
     base.extend ClassMethods
     base.send :include, InstanceMethods
