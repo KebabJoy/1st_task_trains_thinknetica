@@ -5,13 +5,16 @@ class Train
   include Company
   attr_reader :type; :number; :route; :current_station; :speed; :wagons
   @@trains = {}
+  NUM_FORMAT = /[\w\d]{3}-?[\w\d]{0,2}/
 
 
   def initialize(num)
     @number = num
     @speed = 0
     @wagons = []
+    validate!
     @@trains[num] = self
+    register_instance
   end
 
   def self.find(id)
@@ -66,6 +69,20 @@ class Train
     if @current_station != @route.stations[0]
       @route.stations[@route.stations.index(@current_station)-1]
     end
+  end
+
+  def valid?
+    validate!
+    true
+  rescue
+    false
+  end
+
+  protected #A user has method valid? to validate object
+
+  def validate!
+    raise 'nil' if @number.nil?
+    raise "format_error" if @number !~ NUM_FORMAT
   end
 
   private #A user should not be able to change speed and wagons manually

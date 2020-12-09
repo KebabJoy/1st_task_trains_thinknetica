@@ -86,6 +86,14 @@ class Menu
       train = PassengerTrain.new(num)
     end
     @trains[num] = train
+    puts "Train number #{num} has been created"
+  rescue RuntimeError => e
+    if e.message == "format_error"
+      puts "Wrong number format. Try again"
+    else
+      puts "Number cannot be nil. Try again"
+    end
+    retry
   end
 
   def create_route
@@ -124,9 +132,10 @@ class Menu
   end
 
   def add_wagon
-    puts "Enter train's number:"
+    puts "Enter train's number and company:"
     num = gets.chomp
-    wagon = Wagon.new(@trains[num].type)
+    comp = gets.chomp
+    wagon = Wagon.new(@trains[num].type,comp)
     @trains[num].add_wagon(wagon)
   end
 

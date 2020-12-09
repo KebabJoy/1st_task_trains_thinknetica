@@ -8,6 +8,7 @@ class Station
   def initialize(name)
     @trains = []
     @name = name
+    validate!
     @@stations << self
     register_instance
   end
@@ -34,6 +35,19 @@ class Station
     else
       puts "Поезда нет на этой станции"
     end
+  end
+
+  def valid?
+    validate!
+    true
+  rescue
+    false
+  end
+
+  protected #A user has method valid? to validate object
+
+  def validate!
+    raise 'nil' if @name.nil?
   end
 
   private #A user should not be able to change trains manually
