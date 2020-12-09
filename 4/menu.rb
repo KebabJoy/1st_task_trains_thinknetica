@@ -89,9 +89,9 @@ class Menu
     puts "Train number #{num} has been created"
   rescue RuntimeError => e
     if e.message == "format_error"
-      puts "Wrong number format. Try again"
+      puts e.message
     else
-      puts "Number cannot be nil. Try again"
+      puts e.message
     end
     retry
   end

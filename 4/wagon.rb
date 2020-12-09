@@ -20,6 +20,6 @@ class Wagon
   protected #A user has method valid? to validate object
 
   def validate!
-    raise 'nil' if @company.nil? || @type.nil?
+    raise 'Argument cannot be nil' if @company.nil? || @type.nil?
   end
 end

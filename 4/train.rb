@@ -81,8 +81,8 @@ class Train
   protected #A user has method valid? to validate object
 
   def validate!
-    raise 'nil' if @number.nil?
-    raise "format_error" if @number !~ NUM_FORMAT
+    raise "Number cannot be nil" if @number.nil?
+    raise "Wrong number format" if @number !~ NUM_FORMAT
   end
 
   private #A user should not be able to change speed and wagons manually

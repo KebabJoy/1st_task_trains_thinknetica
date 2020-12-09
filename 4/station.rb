@@ -30,11 +30,7 @@ class Station
   end
 
   def depart_train(train)
-    if @trains.include?(train)
-      @trains.delete(train)
-    else
-      puts "Поезда нет на этой станции"
-    end
+    @trains.delete(train)
   end
 
   def valid?
@@ -47,7 +43,7 @@ class Station
   protected #A user has method valid? to validate object
 
   def validate!
-    raise 'nil' if @name.nil?
+    raise 'Argument cannot be nil' if @name.nil?
   end
 
   private #A user should not be able to change trains manually
