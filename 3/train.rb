@@ -2,7 +2,7 @@ require_relative 'modules'
 
 class Train
   include InstanceCounter
-  include Manufacturer
+  include Company
   attr_reader :type; :number; :route; :current_station; :speed; :wagons
   @@trains = {}
 
