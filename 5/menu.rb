@@ -16,7 +16,7 @@ class Menu
     @stations = {}
     @route = {}
     @trains = {}
-    @wagons
+    @wagons = {}
   end
 
   def print_menu
