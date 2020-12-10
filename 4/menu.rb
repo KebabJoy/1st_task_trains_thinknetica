@@ -88,11 +88,7 @@ class Menu
     @trains[num] = train
     puts "Train number #{num} has been created"
   rescue RuntimeError => e
-    if e.message == "format_error"
       puts e.message
-    else
-      puts e.message
-    end
     retry
   end
 
