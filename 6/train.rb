@@ -4,6 +4,8 @@ require 'wagon'
 class Train
   include InstanceCounter
   include Company
+  include Validation
+  include Accessors
   attr_reader :type; :number; :route; :current_station; :speed; :wagons
   @@trains = {}
   NUM_FORMAT = /[\w\d]{3}-?[\w\d]{0,2}/
