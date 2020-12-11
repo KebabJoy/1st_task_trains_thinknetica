@@ -18,7 +18,7 @@ module Validation
   module InstanceMethods
     def validate!(name, type, args = nil)
       var = instance_variable_get("@#{name}")
-      send "validate_#{type}", var, args
+      send "validate_#{type}", [var, args]
     end
 
     def valid?
@@ -31,16 +31,16 @@ module Validation
     end
 
     private #A user shouldn't be able to use these validations manually
-    def validate_presence(name)
-      raise 'Variable is nil!' if name.nil? || name.empty?
+    def validate_presence(*args)
+      raise 'Variable is nil!' if args[0].nil? || args[0].empty?
     end
 
-    def validate_format(name, format)
-      raise "Variable doesn't match the template" if name !~ format
+    def validate_format(*args)
+      raise "Variable doesn't match the template" if args[0] !~ args[1]
     end
 
-    def validate_type(name, type)
-      raise "Variable doesn't match the type" if name.is_a? type
+    def validate_type(*args)
+      raise "Variable doesn't match the type" if args[0].is_a? args[1]
     end
   end
 end
